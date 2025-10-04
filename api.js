@@ -21,6 +21,19 @@ app.get('/sumar', (req, res) => {
   res.json({ resultado });
 });
 
+// Endpoint para sumar dos valores
+app.get('/restar', (req, res) => {
+  const a = parseFloat(req.query.a);
+  const b = parseFloat(req.query.b);
+
+  if (isNaN(a) || isNaN(b)) {
+    return res.status(400).json({ error: 'Por favor envía dos números válidos en los parámetros a y b' });
+  }
+
+  const resultado = a - b;
+  res.json({ resultado });
+});
+
 // Iniciar el servidor
 app.listen(port, () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);
