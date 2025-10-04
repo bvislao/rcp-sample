@@ -1,8 +1,11 @@
 // Importar dependencias
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 3000; // puedes cambiar el puerto si lo deseas
 
+
+app.use(cors()); // => Access-Control-Allow-Origin: *
 // Endpoint Hola Mundo
 app.get('/hola', (req, res) => {
   res.send('Hola Mundo');
